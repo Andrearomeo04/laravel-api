@@ -12,7 +12,7 @@ class LeadController extends Controller
 {
     public function store(StoreProjectRequest $request)
     {
-        $form_data = $request->all();
+        $form_data = $request->all();s
         
     }
 }
