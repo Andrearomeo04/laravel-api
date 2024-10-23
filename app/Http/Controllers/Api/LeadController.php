@@ -31,9 +31,14 @@ class LeadController extends Controller
             'phone.required' => 'Inserisci un numero di telefono',
             'phone.max' => 'il numero di telefono non può avere piu di :max numeri',
             'content.required' => 'Inserisci un contenuto',
-        ]
-    
-    );
+        ]);
+
+    if($validator->fails()){
+        return response()->json([
+            'success' => false,
+            'errors' => $validator->errors()
+        ]);
+    }
         
         $new_lead = new Lead();
         $new_lead->fill($form_data);
